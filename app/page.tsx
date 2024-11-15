@@ -8,10 +8,10 @@ const Home = ({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
 
   return (
-    <div className="flex h-screen max-h-screen">
+    <div className="flex h-screen w-full overflow-hidden  max-h-screen">
       {isAdmin && <PasskeyModal />}
 
-      <section className="remove-scrollbar container my-auto">
+      <section className=" container remove-scrollbar overflow-y-auto h-full  my-auto">
         <div className="sub-container max-w-[496px]">
           <Image
             src="/assets/icons/logo-full.svg"
@@ -41,6 +41,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
         alt="patient"
         className="side-img max-w-[50%]"
       />
+
     </div>
   );
 };

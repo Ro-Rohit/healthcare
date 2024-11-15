@@ -58,6 +58,7 @@ const RegisterForm = ({ user }: { user: User }) => {
       formData.append("fileName", values.identificationDocument[0].name);
     }
 
+
     try {
       const patient = {
         userId: user.$id,

@@ -72,10 +72,12 @@ export const formatDateTime = (dateString: Date | string, timeZone: string = Int
   };
 };
 
+//decode
 export function encryptKey(passkey: string) {
   return btoa(passkey);
 }
 
+//encode
 export function decryptKey(passkey: string) {
   return atob(passkey);
 }

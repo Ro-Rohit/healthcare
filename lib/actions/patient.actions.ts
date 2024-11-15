@@ -25,7 +25,6 @@ export const createUser = async (user: CreateUserParams) => {
       undefined,
       user.name
     );
-
     return parseStringify(newuser);
   } catch (error: any) {
     // Check existing user
@@ -62,10 +61,9 @@ export const registerPatient = async ({
   try {
     // Upload file ->  // https://appwrite.io/docs/references/cloud/client-web/storage#createFile
     let file;
+
     if (identificationDocument) {
-      const inputFile =
-        identificationDocument &&
-        InputFile.fromBlob(
+      const inputFile = InputFile.fromBlob(
           identificationDocument?.get("blobFile") as Blob,
           identificationDocument?.get("fileName") as string
         );
@@ -78,12 +76,12 @@ export const registerPatient = async ({
       DATABASE_ID!,
       PATIENT_COLLECTION_ID!,
       ID.unique(),
-      {
+      { 
         identificationDocumentId: file?.$id ? file.$id : null,
         identificationDocumentUrl: file?.$id
           ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view??project=${PROJECT_ID}`
           : null,
-        ...patient,
+          ...patient,
       }
     );
 
